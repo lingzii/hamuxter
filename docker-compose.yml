@@ -1,0 +1,29 @@
+services:
+  hamster-server:
+    container_name: hamster-server
+    image: hamuxter
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    networks:
+      - default
+    restart: unless-stopped
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    healthcheck:
+      test: redis-cli ping || exit 1
+    ports:
+      - "6379:6379"
+    networks:
+      - default
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge

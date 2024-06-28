@@ -1,0 +1,21 @@
+# 營運系統產生的暫存檔案
+.DS_Store
+Thumbs.db
+
+# 日誌檔案
+*.log
+
+# 暫存檔案
+*.tmp
+*.swp
+
+# 個人配置檔案
+.vscode/
+*.ini
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
